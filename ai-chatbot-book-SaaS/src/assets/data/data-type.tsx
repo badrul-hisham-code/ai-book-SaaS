@@ -126,3 +126,26 @@ export const footerColumns = [
     ],
   },
 ];
+
+export const commonIssues = [
+  {
+    title: "Insufficient Funds",
+    description: "Make sure you have enough balance in your account",
+    solution: "Add funds or try a different payment method",
+  },
+  {
+    title: "Incorrect Card Details",
+    description: "Double-check your card number, expiry date, and CVV",
+    solution: "Review and correct your payment information",
+  },
+  {
+    title: "Card Declined",
+    description: "Your bank may have declined the transaction",
+    solution: "Contact your bank or try another card",
+  },
+  {
+    title: "Network Issues",
+    description: "Connection problems during payment processing",
+    solution: "Check your internet connection and try again",
+  },
+];
