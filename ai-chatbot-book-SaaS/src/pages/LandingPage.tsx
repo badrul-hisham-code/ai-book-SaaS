@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
 import ChatDemo from "../components/ChatDemo";
@@ -20,6 +20,7 @@ import {
 
 const LandingPage: React.FC = () => {
   const navigate = useNavigate();
+  const [cartItemCount, setCartItemCount] = useState<number>(0);
 
   // Event handlers
   const handleEmailSubmit = (email: string) => {
@@ -27,7 +28,16 @@ const LandingPage: React.FC = () => {
   };
 
   const handlePlanSelect = (planName: string) => {
-    alert(`You selected the ${planName} plan!`);
+    // Add item to cart and update count
+    setCartItemCount((prev) => prev + 1);
+
+    // Navigate to cart page
+    navigate("/cart", {
+      state: {
+        selectedPlan: planName,
+        message: `${planName} plan added to cart!`,
+      },
+    });
   };
 
   const handleStartTrial = () => {
@@ -45,6 +55,7 @@ const LandingPage: React.FC = () => {
         navLinks={navLinks}
         ctaText="Start Free Trial"
         onCtaClick={handleStartTrial}
+        cartItemCount={cartItemCount}
       />
 
       <HeroSection
