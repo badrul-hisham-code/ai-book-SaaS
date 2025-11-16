@@ -84,6 +84,7 @@ export interface NavbarProps {
   navLinks: NavLink[];
   ctaText: string;
   onCtaClick?: () => void;
+  cartItemCount?: number;
 }
 
 export interface PricingPlan {
