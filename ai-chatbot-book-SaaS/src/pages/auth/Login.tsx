@@ -1,24 +1,14 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import { BookOpen, Mail, Lock, Eye, EyeOff, User } from "lucide-react";
+import { BookOpen, Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import type { LoginFormData } from "../../interface/auth-data";
 
-interface RegisterFormData {
-  fullName: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
-
-const Register: React.FC = () => {
+const Login: React.FC = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [showConfirmPassword, setShowConfirmPassword] =
-    useState<boolean>(false);
-  const [formData, setFormData] = useState<RegisterFormData>({
-    fullName: "",
+  const [formData, setFormData] = useState<LoginFormData>({
     email: "",
     password: "",
-    confirmPassword: "",
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -31,20 +21,14 @@ const Register: React.FC = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
-
-    // TODO: Add actual registration logic here
-    console.log("Registration attempt:", formData);
-    alert("Registration successful! (Demo)");
-    navigate("/login");
+    // TODO: Add actual authentication logic here
+    console.log("Login attempt:", formData);
+    alert("Login successful! (Demo)");
+    navigate("/");
   };
 
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-black text-white flex items-center justify-center px-4">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-blue-500/10"></div>
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-50"></div>
@@ -64,39 +48,14 @@ const Register: React.FC = () => {
           </span>
         </Link>
 
-        {/* Register Card */}
+        {/* Login Card */}
         <div className="bg-gradient-to-br from-gray-900 to-black border border-white/10 rounded-2xl p-8 shadow-2xl">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-white mb-2">
-              Create your account
-            </h1>
-            <p className="text-gray-400">Start your journey with BookBot AI</p>
+            <h1 className="text-3xl font-bold text-white mb-2">Welcome back</h1>
+            <p className="text-gray-400">Sign in to your account to continue</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Full Name Field */}
-            <div>
-              <label
-                htmlFor="fullName"
-                className="block text-sm font-medium text-gray-300 mb-2"
-              >
-                Full name
-              </label>
-              <div className="relative">
-                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                <input
-                  type="text"
-                  id="fullName"
-                  name="fullName"
-                  value={formData.fullName}
-                  onChange={handleChange}
-                  required
-                  placeholder="John Doe"
-                  className="w-full pl-11 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white placeholder-gray-500"
-                />
-              </div>
-            </div>
-
+          <form onSubmit={handleSubmit} className="space-y-6">
             {/* Email Field */}
             <div>
               <label
@@ -154,59 +113,18 @@ const Register: React.FC = () => {
               </div>
             </div>
 
-            {/* Confirm Password Field */}
-            <div>
-              <label
-                htmlFor="confirmPassword"
-                className="block text-sm font-medium text-gray-300 mb-2"
-              >
-                Confirm password
-              </label>
-              <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                <input
-                  type={showConfirmPassword ? "text" : "password"}
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  required
-                  placeholder="••••••••"
-                  className="w-full pl-11 pr-12 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent text-white placeholder-gray-500"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-300"
-                >
-                  {showConfirmPassword ? (
-                    <EyeOff className="w-5 h-5" />
-                  ) : (
-                    <Eye className="w-5 h-5" />
-                  )}
-                </button>
-              </div>
-            </div>
-
-            {/* Terms Agreement */}
-            <div>
-              <label className="flex items-start">
+            {/* Remember Me & Forgot Password */}
+            <div className="flex items-center justify-between">
+              <label className="flex items-center">
                 <input
                   type="checkbox"
-                  required
-                  className="w-4 h-4 mt-1 bg-white/5 border border-white/10 rounded focus:ring-2 focus:ring-cyan-500"
+                  className="w-4 h-4 bg-white/5 border border-white/10 rounded focus:ring-2 focus:ring-cyan-500"
                 />
-                <span className="ml-2 text-sm text-gray-400">
-                  I agree to the{" "}
-                  <a href="#" className="text-cyan-400 hover:text-cyan-300">
-                    Terms of Service
-                  </a>{" "}
-                  and{" "}
-                  <a href="#" className="text-cyan-400 hover:text-cyan-300">
-                    Privacy Policy
-                  </a>
-                </span>
+                <span className="ml-2 text-sm text-gray-400">Remember me</span>
               </label>
+              <a href="#" className="text-sm text-cyan-400 hover:text-cyan-300">
+                Forgot password?
+              </a>
             </div>
 
             {/* Submit Button */}
@@ -214,7 +132,7 @@ const Register: React.FC = () => {
               type="submit"
               className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg hover:from-cyan-400 hover:to-blue-500 transition font-semibold shadow-lg shadow-cyan-500/25"
             >
-              Create account
+              Sign in
             </button>
           </form>
 
@@ -269,14 +187,14 @@ const Register: React.FC = () => {
             </button>
           </div>
 
-          {/* Sign In Link */}
+          {/* Sign Up Link */}
           <p className="mt-8 text-center text-sm text-gray-400">
-            Already have an account?{" "}
+            Don't have an account?{" "}
             <Link
-              to="/login"
+              to="/register"
               className="text-cyan-400 hover:text-cyan-300 font-medium"
             >
-              Sign in
+              Sign up for free
             </Link>
           </p>
         </div>
@@ -295,4 +213,4 @@ const Register: React.FC = () => {
   );
 };
 
-export default Register;
+export default Login;

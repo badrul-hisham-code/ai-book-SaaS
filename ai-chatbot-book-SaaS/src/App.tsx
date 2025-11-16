@@ -3,9 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Pages
 import LandingPage from "./pages/LandingPage";
-import Login from "./auth/Login";
-import Register from "./auth/Register";
-import Logout from "./auth/Logout";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import Logout from "./pages/auth/Logout";
+import Cart from "./pages/Cart";
+import Payment from "./pages/payment/Payment";
+import PaymentSuccess from "./pages/payment/PaymentSuccess";
+import PaymentFailed from "./pages/payment/PaymentFail";
 
 const App: React.FC = () => {
   return (
@@ -18,6 +22,12 @@ const App: React.FC = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/logout" element={<Logout />} />
+
+        {/* Cart & Payment Routes */}
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/payment-success" element={<PaymentSuccess />} />
+        <Route path="/payment-failed" element={<PaymentFailed />} />
 
         {/* Catch all - 404 */}
         <Route path="*" element={<LandingPage />} />
