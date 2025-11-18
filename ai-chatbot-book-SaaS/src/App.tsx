@@ -10,6 +10,7 @@ import Cart from "./pages/Cart";
 import Payment from "./pages/payment/Payment";
 import PaymentSuccess from "./pages/payment/PaymentSuccess";
 import PaymentFailed from "./pages/payment/PaymentFail";
+import Chat from "./pages/Chat";
 
 const App: React.FC = () => {
   return (
@@ -28,6 +29,9 @@ const App: React.FC = () => {
         <Route path="/payment" element={<Payment />} />
         <Route path="/payment-success" element={<PaymentSuccess />} />
         <Route path="/payment-failed" element={<PaymentFailed />} />
+
+        {/* Chat Routes */}
+        <Route path="/chat" element={<Chat />} />
 
         {/* Catch all - 404 */}
         <Route path="*" element={<LandingPage />} />
