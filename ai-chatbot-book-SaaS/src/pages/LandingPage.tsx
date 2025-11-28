@@ -107,6 +107,32 @@ const LandingPage: React.FC = () => {
         onSecondaryClick={handleBookDemo}
       />
 
+      <div className="bg-gray-900 py-8 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h3 className="text-xl font-bold text-gray-400 mb-4">Role Simulator (Dev Only)</h3>
+          <div className="flex justify-center space-x-4">
+            <button
+              onClick={() => navigate("/chat")}
+              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+            >
+              Simulate User
+            </button>
+            {/* <button
+              onClick={() => navigate("/usage")}
+              className="px-4 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-700 transition"
+            >
+              Simulate User (Usage)
+            </button> */}
+            <button
+              onClick={() => navigate("/superadmin")}
+              className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
+            >
+              Simulate Superadmin
+            </button>
+          </div>
+        </div>
+      </div>
+
       <Footer
         brandName="BookBot AI"
         tagline="The AI chatbot that only talks books."
