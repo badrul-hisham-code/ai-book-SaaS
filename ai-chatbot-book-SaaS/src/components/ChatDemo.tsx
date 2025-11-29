@@ -41,12 +41,6 @@ const ChatDemo: React.FC<ChatDemoProps> = ({
     }, 1000);
   };
 
-  const navigate = useNavigate();
-
-  // const routeToChat = () => {
-  //   navigate("/chat");
-  // };
-
   return (
     <section
       id="demo"
