@@ -8,15 +8,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-
-interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  queries: string;
-  quantity: number;
-  features: string[];
-}
+import type { CartItem } from "../interface/cart-data";
 
 const Cart: React.FC = () => {
   const navigate = useNavigate();

@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import SuperAdminSidebar from './SuperAdminSidebar';
 import { Menu } from 'lucide-react';
-
-interface SuperAdminLayoutProps {
-  children: React.ReactNode;
-  title: string;
-}
+import type { SuperAdminLayoutProps } from '../interface/common-data';
 
 const SuperAdminLayout: React.FC<SuperAdminLayoutProps> = ({ children, title }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

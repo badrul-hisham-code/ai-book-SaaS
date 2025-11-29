@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import UserSidebar from './UserSidebar';
 import { Menu } from 'lucide-react';
-
-interface UserLayoutProps {
-  children: React.ReactNode;
-}
+import type { UserLayoutProps } from '../interface/common-data';
 
 const UserLayout: React.FC<UserLayoutProps> = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
