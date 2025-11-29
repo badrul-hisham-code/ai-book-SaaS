@@ -94,7 +94,7 @@ const SuperAdminDashboard: React.FC = () => {
         <div className="px-6 py-4 border-b border-slate-700 bg-slate-800/50">
           <h2 className="text-lg font-semibold text-white">System Logs</h2>
         </div>
-        <div className="p-0">
+        <div className="p-0 overflow-x-auto">
           <table className="min-w-full divide-y divide-slate-700">
             <thead className="bg-slate-900/50">
               <tr>
