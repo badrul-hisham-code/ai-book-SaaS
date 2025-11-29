@@ -10,16 +10,16 @@ const RoleSimulator: React.FC = () => {
         <h3 className="text-xl font-bold text-gray-400 mb-4">
           Role Simulator (Dev Only)
         </h3>
-        <div className="flex justify-center space-x-4">
+        <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
           <button
             onClick={() => navigate("/chat")}
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+            className="w-full sm:w-auto px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
           >
             Simulate User
           </button>
           <button
             onClick={() => navigate("/superadmin")}
-            className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
+            className="w-full sm:w-auto px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
           >
             Simulate Superadmin
           </button>
