@@ -101,3 +101,22 @@ export interface PricingSectionProps {
   plans: PricingPlan[];
   onPlanSelect?: (planName: string) => void;
 }
+
+export interface SuperAdminLayoutProps {
+  children: React.ReactNode;
+  title: string;
+}
+
+export interface SuperAdminSidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export interface UserLayoutProps {
+  children: React.ReactNode;
+}
+
+export interface UserSidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}

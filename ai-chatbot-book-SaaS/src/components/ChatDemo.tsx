@@ -124,12 +124,6 @@ const ChatDemo: React.FC<ChatDemoProps> = ({
             </div>
             <p className="text-xs text-gray-500 mt-2">{suggestionText}</p>
             <br />
-            {/* <button
-              onClick={routeToChat}
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white p-3 rounded-lg hover:from-cyan-400 hover:to-blue-500 transition"
-            >
-              Test Me
-            </button> */}
           </div>
         </div>
       </div>

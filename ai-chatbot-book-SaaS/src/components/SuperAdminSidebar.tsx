@@ -4,11 +4,7 @@ import {
   Users, Activity, FileText, LogOut 
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
-
-interface SuperAdminSidebarProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
+import type { SuperAdminSidebarProps } from '../interface/common-data';
 
 const SuperAdminSidebar: React.FC<SuperAdminSidebarProps> = ({ isOpen, onClose }) => {
   const navigate = useNavigate();

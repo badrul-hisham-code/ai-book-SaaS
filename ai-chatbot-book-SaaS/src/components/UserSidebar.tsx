@@ -1,11 +1,8 @@
 import React from 'react';
 import { MessageSquare, BarChart2, LogOut } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import type { UserSidebarProps } from '../interface/common-data';
 
-interface UserSidebarProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
 
 const UserSidebar: React.FC<UserSidebarProps> = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
